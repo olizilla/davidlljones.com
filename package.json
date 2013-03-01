@@ -1,0 +1,41 @@
+{
+  "name": "davidlljones.com",
+  "version": "0.1.0",
+  "description": "The life and works of David Jones",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/olizilla/davidlljones.com.git"
+  },
+  "keywords": [
+    "HTML5",
+    "Boilerplate",
+    "LESS",
+    "CoffeeScript",
+    "Mobile"
+  ],
+  "author": "olizilla",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/alanshaw/gruntend/blob/master/LICENCE"
+    }
+  ],
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-contrib-coffee": "~0.4.0",
+    "grunt-contrib-less": "~0.5.0",
+    "grunt-contrib-uglify": "~0.1.1",
+    "grunt-contrib-mincss": "~0.4.0",
+    "grunt-contrib-watch": "~0.2.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-imagemin": "~0.1.2",
+    "grunt-imagemagick": "~0.1.5"
+  }
+}
