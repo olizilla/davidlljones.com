@@ -729,6 +729,15 @@ h1 {
   text-transform: uppercase;
   text-align: center;
 }
+h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  max-width: 90%;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
 .job {
   margin: 8px 6px;
   padding: 0;
@@ -742,7 +751,9 @@ h1 {
 }
 .job img {
   margin: -20% 0 0 -50%;
+  border: 0 none;
   width: 200%;
+  max-width: none;
   height: auto;
   opacity: 0.8;
   vertical-align: top;
