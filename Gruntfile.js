@@ -8,6 +8,7 @@ module.exports = function(grunt) {
 				files: [
 					// Copy all (non hidden) files (not directories) from src
 					{dest: 'dist/', src: '*', filter: 'isFile', expand: true, cwd: 'src/'},
+					{dest: 'dist/', src: 'hampton-court/*', expand: true, cwd: 'src/' },
 
 					// Copy the following hidden files
 					{dest: 'dist/.htaccess', src: 'src/.htaccess'},
