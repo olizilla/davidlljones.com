@@ -724,10 +724,11 @@ h1 {
   margin: 0;
   opacity: 0.7;
   color: #90E0C2;
-  font-size: 5.45em;
+  font-size: 5.4em;
   line-height: 110%;
   text-transform: uppercase;
   text-align: center;
+  font-weight: normal;
 }
 h1 a {
   text-decoration: none;
