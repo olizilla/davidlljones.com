@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 		// Create the html files from page layouts and partial html fragments
 		assemble:{
 			options: {
-				assets: 'dist',
+				assets: 'dist/assets',
 				layout:'src/layout.hbs',
 				partials: ['src/structure/components/*.hbs'],
 				data: 'src/content/data/*.json'
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 		less: {
 			all: {
 				files: {
-					'dist/css/main.css': 'src/css/main.less'
+					'dist/assets/css/main.css': 'src/css/main.less'
 				}
 			}
 		},		
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 					expand:true,
 					cwd: 'src',
 					src: ['js/*', 'js/**/*', 'css/**/*'],
-					dest: 'dist',
+					dest: 'dist/assets',
 					ext: ''
 				}]
 			},
