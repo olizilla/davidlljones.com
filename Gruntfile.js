@@ -2,98 +2,109 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 
-		// Copy files that don't need compilation to dist/
-		copy: {
-			dist: {
-				files: [
-						// Copy all (non hidden) files (not directories) from src
-						{dest: 'dist/', src: '*', filter: 'isFile', expand: true, cwd: 'src/'},
-						{dest: 'dist/', src: 'hampton-court/*', expand: true, cwd: 'src/' },
-						{dest: 'dist/', src: 'fujimori/*', expand: true, cwd: 'src/' },
-
-						// Copy the following hidden files
-						{dest: 'dist/.htaccess', src: 'src/.htaccess'},
-
-						// Copy any JavaScript files (not CoffeeScript src)
-						{dest: 'dist/', src: 'js/**/*.js', expand: true, cwd: 'src/'},
-
-						// Copy any CSS files (not LESS src)
-						{dest: 'dist/', src: 'css/**/*.css', expand: true, cwd: 'src/'},
-
-						// Copy other resources
-						// {dest: 'dist/', src: 'img/**', expand: true, cwd: 'src/'},
-						{dest: 'dist/', src: 'font/**', expand: true, cwd: 'src/'}
-					]
-				}
+		// Create the html files from page layouts and partial html fragments
+		assemble:{
+			options: {
+				assets: 'dist',
+				layout:'src/layout.hbs',
+				partials: ['src/structure/components/*.hbs'],
+				data: 'src/content/data/*.json'
 			},
-
-		// Compile all CoffeScript into main.js
-		coffee: {
-			compile: {
-				files: {
-					'dist/js/main.js': 'src/js/main.coffee'
-				}
+			pages: {
+				files:[{
+					expand:true,
+					cwd: 'src/content/pages/',
+					src: ['*.hbs','**/*.hbs'],
+					dest: 'dist',
+					ext: '.html'
+				}]
 			}
 		},
 
 		// Compile the mobile first site stylesheet (and the no @media queries version for lt-ie8) 
 		less: {
-			compile: {
+			all: {
 				files: {
 					'dist/css/main.css': 'src/css/main.less'
 				}
 			}
-		},
+		},		
 
-		// Minify the site script
-		uglify: {
-			compress: {
-				src: 'dist/js/main.js',
-				dest: 'dist/js/main.js'
+		copy:{
+			res:{
+				files:[{
+					expand:true,
+					cwd: 'src',
+					src: ['js/*', 'js/**/*', 'css/**/*'],
+					dest: 'dist',
+					ext: ''
+				}]
+			},
+			content:{
+				files:[{
+					expand:true,
+					cwd: 'src/content/pages',
+					src: ['**/*.{jpg,jpeg,png,gif}'],
+					dest: 'dist',
+					ext: ''
+				}]
 			}
 		},
 
-		// Minify the site CSS
-		mincss: {
-			compress: {
-				files: {
-					'dist/css/main.css': 'dist/css/main.css'
-				}
-			}
-		},
-
-		"imagemagick-resize":{
+		watch:{
 			all:{
-				from:'raw/img/',
-				to:'src/img/',
-				files:'**',
-				props:{
-					width:800
+				files:['src/**/*', 'Gruntfile.js'],
+				tasks:['default'],
+				options:{
+					livereload:true
 				}
-			}
-		},
-
-		imagemin: {
-			dist: {
-				options: {
-					optimizationLevel: 3
-				},
-				files: [
-					{dest: 'dist/', src: 'img/**', expand: true, cwd: 'src/'}
-				]
-			}
-		},
-
-		// Watch CoffeeScript, LESS & HTML files for changes, copy & compile but not minify for easy debug during dev
-		watch: {
-			project: {
-				files: ['src/js/**/*.coffee', 'src/css/**/*.less', 'src/**/*.html'],
-				tasks: ['copy', 'imagemin', 'less', 'coffee']
 			}
 		}
+
+		// // Minify the site CSS
+		// mincss: {
+		// 	compress: {
+		// 		files: {
+		// 			'dist/css/main.css': 'dist/css/main.css'
+		// 		}
+		// 	}
+		// },
+
+		// "imagemagick-resize":{
+		// 	all:{
+		// 		from:'raw/img/',
+		// 		to:'src/img/',
+		// 		files:'**',
+		// 		props:{
+		// 			width:800
+		// 		}
+		// 	}
+		// },
+
+		// imagemin: {
+		// 	dist: {
+		// 		options: {
+		// 			optimizationLevel: 3
+		// 		},
+		// 		files: [
+		// 			{dest: 'dist/', src: 'img/**', expand: true, cwd: 'src/'}
+		// 		]
+		// 	}
+		// },
+
+		// // Watch CoffeeScript, LESS & HTML files for changes, copy & compile but not minify for easy debug during dev
+		// watch: {
+		// 	project: {
+		// 		files: ['src/js/**/*.coffee', 'src/css/**/*.less', 'src/**/*.html'],
+		// 		tasks: ['copy', 'imagemin', 'less', 'coffee']
+		// 	}
+		// }
 	});
 
+
+
 	// Load the grunt-conrtib plugin so we can compile and compress CoffeeScript and LESS files
+	grunt.loadNpmTasks('assemble');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-coffee');
 	grunt.loadNpmTasks('grunt-contrib-less');
@@ -103,5 +114,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-imagemagick');
 
-	grunt.registerTask('default', ['copy', 'imagemin', 'coffee', 'less', 'uglify', 'mincss']);
+	grunt.registerTask('default', ['assemble', 'less', 'copy']);
+
+	// grunt.registerTask('default', ['copy', 'imagemin', 'coffee', 'less', 'uglify', 'mincss']);
 };
