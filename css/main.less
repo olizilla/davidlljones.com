@@ -1,0 +1,137 @@
+@import 'normalize';
+@import 'base';
+@import 'font/familiar-pro/stylesheet.css';
+
+body{
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+	// background: snow url('../img/bg-paper.jpg');
+	// background: snow url('../img/Natural-Paper-Palette/eggshell.jpg');
+	// background: lighten(#8DAAD9, 22%);
+	// background: rgb(135, 189, 116);
+	background: whitesmoke;
+	text-align: center;
+	padding: 0;
+	color:#444;
+}
+h1{
+	font-family: FamiliarProBold, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+	margin:0;
+	// opacity: 0.7;
+	// color:#90E0C2;
+	// color:rgb(58, 66, 109);
+	color: rgb(135, 189, 116);
+	font-size: 4em;
+	line-height: 100%;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: normal;
+	letter-spacing: 0.3em;
+	padding:14px 0 2px;
+}
+h1 a{
+	text-decoration: none;
+	color: inherit;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+img {
+	max-width: 90%;
+	margin-bottom: 20px;
+	opacity: 0.9;
+}
+p {
+	max-width: 800px;
+	width:90%;
+	margin: 0 auto;
+	padding: 1em 0;
+	text-align: left;
+}
+.navbar,
+.strapline {
+	border: solid 2px #444;
+	border-left: none;
+	border-right: none;
+	font-weight: bold;
+	max-width: none;
+	padding: 2px 0;
+	margin: 16px 0 0;
+	letter-spacing: 1px;
+}
+.navbar a,
+.strapline p{
+	margin:0 3px;
+	border:0;
+	padding:3px 0px;
+}
+.navbar .box{
+	max-width: 300px;
+	text-align: center;
+	margin:0 auto;
+}
+.navbar a{
+	display: inline-block;
+	width:300px;
+	text-align: center;
+}
+.navbar .issue{
+	display: none;
+}
+.job{
+	margin:8px 6px;
+	padding:0;
+	width: 300px;
+	height: 300px;
+	text-align: center;
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: top;
+	border:0 none;
+}
+.job img{
+	margin:-20% 0 0 -50%;
+	border: 0 none;
+	width: 200%;
+	max-width: none;
+	height:auto;
+	opacity: 0.7;
+	vertical-align:top;
+	-webkit-transition: all 1s ease-out;
+	   -moz-transition: all 1s ease-out;
+	    -ms-transition: all 1s ease-out;
+	     -o-transition: all 1s ease-out;
+	        transition: all 1s ease-out;
+}
+.job img:hover{
+	opacity: 0.95;
+}
+
+body.home .container{
+	max-width: 970px;
+	margin: 18px auto;
+}
+
+@media only screen and (min-width: 630px) {
+	h1{
+		font-size: 5.4em;
+		padding: 10px 0 0 30px;
+	}
+	.navbar .box{
+		max-width: 630px;
+	}
+	.navbar a,
+	.strapline p{
+	}
+}
+
+@media only screen and (min-width: 945px) {
+	.navbar .box{
+		max-width: 930px;
+	}
+	.navbar .issue{
+		display: inline-block;
+	}	
+}
