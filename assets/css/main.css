@@ -722,12 +722,12 @@ h1 {
   font-weight: 300;
   margin: 0;
   color: #87bd74;
-  font-size: 4em;
+  font-size: 3.5em;
   line-height: 100%;
   text-transform: uppercase;
   text-align: center;
   font-weight: normal;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.1em;
   padding: 14px 0 2px;
 }
 h1 a {
@@ -781,9 +781,6 @@ p {
   width: 300px;
   text-align: center;
 }
-.navbar .issue {
-  display: none;
-}
 .job {
   margin: 8px 6px;
   padding: 0;
@@ -801,16 +798,6 @@ p {
   width: 200%;
   max-width: none;
   height: auto;
-  opacity: 0.75;
-  vertical-align: top;
-  -webkit-transition: all 1s ease-out;
-  -moz-transition: all 1s ease-out;
-  -ms-transition: all 1s ease-out;
-  -o-transition: all 1s ease-out;
-  transition: all 1s ease-out;
-}
-.job img:hover {
-  opacity: 0.95;
 }
 body.home .container {
   max-width: 970px;
@@ -831,5 +818,17 @@ body.home .container {
   }
   .navbar .issue {
     display: inline-block;
+  }
+  .job img {
+    opacity: 0.75;
+    vertical-align: top;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    -ms-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+  }
+  .job img:hover {
+    opacity: 0.95;
   }
 }
