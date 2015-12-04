@@ -21,14 +21,14 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// Compile the mobile first site stylesheet (and the no @media queries version for lt-ie8) 
+		// Compile the mobile first site stylesheet (and the no @media queries version for lt-ie8)
 		less: {
 			all: {
 				files: {
 					'dist/assets/css/main.css': 'src/css/main.less'
 				}
 			}
-		},		
+		},
 
 		copy:{
 			res:{
@@ -36,8 +36,7 @@ module.exports = function(grunt) {
 					expand:true,
 					cwd: 'src',
 					src: ['js/*', 'js/**/*', 'css/**/*'],
-					dest: 'dist/assets',
-					ext: ''
+					dest: 'dist/assets'
 				}]
 			},
 			content:{
@@ -45,8 +44,7 @@ module.exports = function(grunt) {
 					expand:true,
 					cwd: 'src/content/pages',
 					src: ['**/*.{jpg,jpeg,png,gif}', 'CNAME'],
-					dest: 'dist',
-					ext: ''
+					dest: 'dist'
 				}]
 			}
 		},
@@ -67,7 +65,6 @@ module.exports = function(grunt) {
 					port: 3000,
 					base: 'dist',
 					keepalive:true
-
 				}
 			}
 		}
@@ -120,7 +117,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-coffee');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-mincss');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
