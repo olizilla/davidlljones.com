@@ -4,7 +4,8 @@
   "description": "The life and works of David Jones",
   "main": "Gruntfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "surge -p ./dist"
   },
   "repository": {
     "type": "git",
