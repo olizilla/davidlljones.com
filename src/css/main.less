@@ -2,7 +2,7 @@
 @import 'base';
 @import 'font/familiar-pro/stylesheet.css';
 
-body{
+body {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 300;
 	background: whitesmoke;
@@ -35,11 +35,24 @@ a:hover{
 	color: #222;
 }
 img {
+	width:800px;
 	max-width:100%;
 	margin:0px;
 	opacity: 0.9;
 }
-p {
+dl {
+	text-align: left;
+}
+dt {
+	min-width: 145px;
+}
+dd {
+	margin-left: 8px;
+}
+dt, dd {
+	display: inline-block;
+}
+p, .p {
 	max-width: 800px;
 	width:90%;
 	margin: 22px auto 22px;
@@ -95,6 +108,12 @@ p {
 body.home .container{
 	max-width: 970px;
 	margin: 18px auto;
+}
+
+@media (min-width: 630px) and (max-width: 944px) {
+	.hide-md {
+		display: none !important;
+	}
 }
 
 @media only screen and (min-width: 630px) {

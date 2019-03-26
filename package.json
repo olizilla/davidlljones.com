@@ -5,7 +5,8 @@
   "main": "Gruntfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "surge -p ./dist"
+    "deploy": "surge -p ./dist",
+    "start": "grunt watch & grunt connect"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,6 @@
       "url": "https://github.com/alanshaw/gruntend/blob/master/LICENCE"
     }
   ],
-  "readmeFilename": "README.md",
   "dependencies": {},
   "devDependencies": {
     "assemble": "^0.4.42",
